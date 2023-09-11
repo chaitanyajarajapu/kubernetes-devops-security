@@ -36,8 +36,6 @@ pipeline {
               container('docker'){
               withDockerRegistry([ credentialsId: "docker-hub", url: ""]) {
                 sh 'printenv'
-                sh 'docker images'
-                sh 'docker ps -a'
                 sh 'docker build -t chaitanyajarajapu/numberic-app:""$GIT_COMMIT"" .'
                 sh 'docker push chaitanyajarajapu/numberic-app:""$GIT_COMMIT""'
           }
