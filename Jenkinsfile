@@ -1,5 +1,5 @@
 pipeline {
-  agent {label 'jenkins'}
+  agent {label 'jenkins-slave'}
 
   stages{
    stage('Build Artifact') {
