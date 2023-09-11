@@ -11,7 +11,7 @@ pipeline {
             steps {
               container('maven'){
               sh "mvn clean package -DskipTests=true"
-              archiveArtifacts 'target/*.jar' //so that they can be downloaded later
+              archiveArtifacts '/myworkspace/target/*.jar' //so that they can be downloaded later
               }
           }
    }
@@ -24,8 +24,8 @@ pipeline {
             }
             post{
               always{
-                junit 'target/sunfire-reports/*.xml'
-                jacaco execPatterns: 'target/jacaco.exec'
+                junit '/myworkspace/target/sunfire-reports/*.xml'
+                jacaco execPatterns: '/myworkspace/target/jacaco.exec'
               }
             }  
           }
