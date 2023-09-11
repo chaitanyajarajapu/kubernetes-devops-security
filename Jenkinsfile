@@ -10,7 +10,7 @@ pipeline {
    stage('Build Artifact') {
             steps {
               container('maven'){
-              sh "mvn clean package -DskipTests=true"
+              sh "mvn clean package test -DskipTests=true"
               archiveArtifacts 'target/*.jar' //so that they can be downloaded later
               }
           }
