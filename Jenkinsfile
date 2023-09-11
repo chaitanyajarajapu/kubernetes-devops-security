@@ -1,5 +1,10 @@
 pipeline {
-  agent {label 'jenkins-slave'}
+    agent {
+        kubernetes{
+            inheritFrom 'cd-k8s-1-25-builder'
+            defaultContainer 'builder'
+        }
+    }
 
   stages{
    stage('Build Artifact') {
