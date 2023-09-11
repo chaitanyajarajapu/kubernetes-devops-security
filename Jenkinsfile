@@ -2,16 +2,16 @@ pipeline {
     agent {
         kubernetes{
             inheritFrom 'cd-k8s-1-25-builder'
-            defaultContainer 'maven'
+            //defaultContainer 'maven'
         }
     }
 
   stages{
    stage('Build Artifact') {
             steps {
-              //container('maven'){
+              container('maven'){
               sh "mvn clean package -DskipTests=true"
-              archive 'target/*.jar' //so that they can be downloaded later
+              archiveArtifacts 'target/*.jar' //so that they can be downloaded later
               //}
           }
    }
