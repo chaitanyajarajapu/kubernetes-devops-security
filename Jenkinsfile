@@ -36,8 +36,8 @@ pipeline {
               container('docker'){
               withDockerRegistry([ credentialsId: "docker-hub", url: ""]) {
                 sh 'printenv'
-                sh 'docker build -t chaitanyajarajapu/numberic-app:""$GIT_COMMIT"" .'
-                sh 'docker push chaitanyajarajapu/numberic-app:""$GIT_COMMIT""'
+                sh 'docker build -t chaitanyajarajapu/numeric-app:""$GIT_COMMIT"" .'
+                sh 'docker push chaitanyajarajapu/numeric-app:""$GIT_COMMIT""'
           }
         }
       }
@@ -46,7 +46,7 @@ pipeline {
             steps {
               container('kubernetes'){
               withKubeConfig([ credentialsId: "kubeconfig"]) {
-                sh "sed -i 's#replace#docker pull chaitanyajarajapu/numberic-app:""$GIT_COMMIT""#g' k8s_deployment_service.yaml"
+                sh "sed -i 's#replace#docker pull chaitanyajarajapu/numeric-app:""$GIT_COMMIT""#g' k8s_deployment_service.yaml"
                 sh 'kubectl apply -f k8s_deployment_service.yaml'
           }
         }
