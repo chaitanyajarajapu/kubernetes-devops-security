@@ -14,9 +14,9 @@ pipeline {
               container('maven'){
               sh "mvn clean package -DskipTests=true"
               archiveArtifacts 'target/*.jar' //so that they can be downloaded later
-              }
+            }
           }
-   }
+        }
 
       stage('Unit Test') {
             steps {
@@ -31,5 +31,15 @@ pipeline {
               }
             }  
           }
+      stage('Build and Push Image') {
+            steps {
+              container('docker'){
+              sh 'printenv'
+              sh 'docker build -t chaitanyajarajapu/numberic-app:""$GIT_COMMIT"" .'
+              SH 'docker push chaitanyajarajapu/numberic-app:""$GIT_COMMIT""'
+              }
+            }
+          }
+        }
       }
   }
