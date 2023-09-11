@@ -24,8 +24,8 @@ pipeline {
             }
             post{
               always{
-                junit '/myworkspace/target/sunfire-reports/*.xml'
-                jacaco execPatterns: '/myworkspace/target/jacaco.exec'
+                junit '/target/surefire-reports/*.xml'
+                jacaco execPatterns: '/target/jacaco.exec'
               }
             }  
           }
