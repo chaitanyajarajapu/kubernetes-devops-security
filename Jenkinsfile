@@ -46,7 +46,7 @@ pipeline {
             steps {
               container('kubernetes'){
               withKubeConfig([ credentialsId: "kubeconfig"]) {
-                sh "sed -i 's#replace#docker pull chaitanyajarajapu/numeric-app:""$GIT_COMMIT""#g' k8s_deployment_service.yaml"
+                sh "sed -i 's#replace#chaitanyajarajapu/numeric-app:$GIT_COMMIT#g' k8s_deployment_service.yaml"
                 sh 'kubectl apply -f k8s_deployment_service.yaml'
           }
         }
