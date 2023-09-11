@@ -21,13 +21,14 @@ pipeline {
               container('maven'){
               sh "mvn test"
               }
+            }
             post{
               always{
                 junit 'target/sunfire-reports/*.xml'
                 jacaco execPatterns: 'target/jacaco.exec'
               }
             }  
-            }
+          }
       }
   }
 }
