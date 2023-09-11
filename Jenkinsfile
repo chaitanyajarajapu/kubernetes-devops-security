@@ -11,7 +11,7 @@ pipeline {
             steps {
               container('maven'){
               sh "mvn clean package -DskipTests=true"
-              archiveArtifacts '/myworkspace/target/*.jar' //so that they can be downloaded later
+              archiveArtifacts 'target/*.jar' //so that they can be downloaded later
               }
           }
    }
