@@ -2,7 +2,7 @@ pipeline {
     agent {
         kubernetes{
             inheritFrom 'cd-k8s-1-25-builder'
-            defaultContainer 'golang'
+            defaultContainer 'maven'
         }
     }
 
