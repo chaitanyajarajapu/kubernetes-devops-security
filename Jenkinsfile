@@ -1,5 +1,3 @@
-//Testing
-
 pipeline {
     agent {
         kubernetes{
