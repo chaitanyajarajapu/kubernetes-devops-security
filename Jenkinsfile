@@ -12,7 +12,7 @@ pipeline {
               container('maven'){
               sh "mvn clean package -DskipTests=true"
               archiveArtifacts 'target/*.jar' //so that they can be downloaded later
-              //}
+              }
           }
    }
 
