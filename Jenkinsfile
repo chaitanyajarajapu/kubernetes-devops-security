@@ -50,7 +50,7 @@ pipeline {
                 //sh 'kubectl --kubeconfig config create deploy node-app --image siddharth67/node-service:v1 -n devsecops'
                 //sh 'kubectl --kubeconfig config expose deploy node-app --name node-service --port 5000 -n devsecops'
               }
-        //}
+        }
       }
     }
   }
