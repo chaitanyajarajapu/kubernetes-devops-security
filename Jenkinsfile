@@ -43,7 +43,7 @@ pipeline {
       stage('Kubernetes Deployment - DEV') {
             steps {
               container('kubectl'){
-              //withKubeConfig([ credentialsId: "kubeconfig"]) {
+              withKubeConfig([ credentialsId: "kubeconfig"]) {
                 sh "sed -i 's#replace#chaitanyajarajapu/numeric-app:${GIT_COMMIT}#g' k8s_deployment_service.yaml"
                 sh 'kubectl --kubeconfig config create ns devsecops'
                 sh 'kubectl --kubeconfig config apply -f k8s_deployment_service.yaml -n devsecops --validate=false'
