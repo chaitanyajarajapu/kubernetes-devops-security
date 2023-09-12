@@ -43,17 +43,11 @@ pipeline {
       stage('Kubernetes Deployment - DEV') {
             steps {
               container('kubectl'){
-              //withKubeConfig([ credentialsId: "kubeconfig"]) {
-              script{
-                sh 'kubectl get pods -n jenkins'
-                sh 'kubectl create ns apptest'
-                sh 'kubectl get ns'
+              withKubeConfig([ credentialsId: "kubeconfig"]) {
                 sh "sed -i 's#replace#chaitanyajarajapu/numeric-app:${GIT_COMMIT}#g' k8s_deployment_service.yaml"
                 sh 'kubectl apply --kubeconfig config -f k8s_deployment_service.yaml'
-          }
-        //}
         }
+      }
       }
     }
   }
-}
