@@ -16,7 +16,7 @@ spec:
         app: devsecops
     spec:
       containers:
-      - image: chaitanyajarajapu/numeric-app:d37883fed949d56d036acb2ec96efbb9ebd5103c
+      - image: chaitanyajarajapu/numeric-app:2608b94d69b266f15918021539d0f6dbb482fe1b
         name: devsecops-container
 ---
 apiVersion: v1
