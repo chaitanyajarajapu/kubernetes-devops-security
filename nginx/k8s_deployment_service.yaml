@@ -5,7 +5,11 @@ metadata:
     app: devsecops
   name: devsecops
 spec:
+<<<<<<< HEAD
   replicas: 1
+=======
+  replicas: 2
+>>>>>>> parent of e32e14d (fdgdf)
   selector:
     matchLabels:
       app: devsecops
