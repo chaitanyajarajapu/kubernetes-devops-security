@@ -47,7 +47,7 @@ pipeline {
                 sh "sed -i 's#replace#chaitanyajarajapu/numeric-app:${GIT_COMMIT}#g' k8s_deployment_service.yaml"
                 //sh 'kubectl --kubeconfig config create ns devsecops'
                 sh 'kubectl --kubeconfig config apply -f k8s_deployment_service.yaml -n devsecops --validate=false'
-                sh 'kubectl --kubeconfig config apply -f /mysql/dep.yaml -n devsecops --validate=false
+                sh 'kubectl --kubeconfig config apply -f /mysql/dep.yaml -n devsecops --validate=false'
                 //sh 'kubectl --kubeconfig config create deploy node-app --image siddharth67/node-service:v1 -n devsecops'
                 //sh 'kubectl --kubeconfig config expose deploy node-app --name node-service --port 5000 -n devsecops'
               }
