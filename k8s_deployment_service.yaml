@@ -6,6 +6,7 @@ metadata:
   name: devsecops
 spec:
   replicas: 2
+  serviceAccount: jenkins-admin
   selector:
     matchLabels:
       app: devsecops
