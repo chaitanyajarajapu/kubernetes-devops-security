@@ -47,7 +47,7 @@ pipeline {
                 sh "sed -i 's#replace#chaitanyajarajapu/numeric-app:${GIT_COMMIT}#g' k8s_deployment_service.yaml"
                 //sh 'kubectl --kubeconfig config create ns devsecops'
                 sh 'kubectl --kubeconfig config apply -f k8s_deployment_service.yaml -n devsecops --validate=false'
-                sh 'cd mysql'
+                sh 'cd /home/jenkins/agent/workspace/CI/Testingunit/mysql'
                 sh 'echo $PWD'
                 sh 'pwd'
                 sh 'ls -lah'
