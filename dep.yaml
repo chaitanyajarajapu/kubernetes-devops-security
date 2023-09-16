@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: guestbook
   # You'll usually want to add your resources to the argocd namespace.
-  namespace: argocd
+  namespace: argocdapp
   # Add this finalizer ONLY if you want these to cascade delete.
   finalizers:
     # The default behaviour is foreground cascading deletion
@@ -224,7 +224,7 @@ spec:
     - kube-controller-manager
     # Name and namespace are optional. If specified, they must match exactly, these are not glob patterns.
     name: my-deployment
-    namespace: my-namespace
+    namespace: argocdapp
 
   # RevisionHistoryLimit limits the number of items kept in the application's revision history, which is used for
   # informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional
